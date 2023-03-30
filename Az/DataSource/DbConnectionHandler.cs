@@ -1,4 +1,5 @@
-﻿using Az.Extensions;
+﻿using Az.Exceptions;
+using Az.Extensions;
 using System;
 using System.Data;
 using System.Threading;

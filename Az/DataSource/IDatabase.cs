@@ -7,7 +7,7 @@ namespace Az.DataSource
     {
 
         void CloseConnection();
-        void ExecuteSql(string sql);
+        void ExecuteSql(string sql, object? param = null);
         IDbConnectionHandler OpenConnection();
         IDbConnectionHandler StartOperation();
         TResult? Query<TResult>(Func<IDbConnection, TResult> query);

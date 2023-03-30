@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dapper;
+using System;
 using System.Data;
 
 namespace Az.DataSource;
@@ -42,14 +43,11 @@ public class Database : IDatabase
         return queryResult;
     }
 
-    public void ExecuteSql(string sql)
+    public void ExecuteSql(string sql, object? param = null)
     {
         ScopedConnection(() =>
         {
-            var command = _connection.CreateCommand();
-            command.CommandText = sql;
-            command.CommandTimeout = 5;
-            command.ExecuteNonQuery();
+            _connection.Execute(sql, param);
         });
     }
 
