@@ -36,7 +36,7 @@ public class Database : IDatabase
         _connection.TestConnection();
     }
 
-    public TResult? Query<TResult>(Func<IDbConnection, TResult> query)
+    public TResult? QueryOperation<TResult>(Func<IDbConnection, TResult> query)
     {
         TResult? queryResult = default;
         ScopedConnection(() => queryResult = query(_connection));
